@@ -1,0 +1,187 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="STYLE.CSS"> -->
+    <title>GOOGLE UI CLONE</title>
+    <style>
+        *{
+    margin: 0;
+}
+/* styling for body */
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.footer{
+font-size: 10px;
+text-align: center;
+}
+/* styling of the header section */
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    align-items: center;
+}
+/* link sytling */
+.header a{
+    margin-right: 20px;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 15px;
+    text-decoration: inherit;
+}
+/* giving the link an hovering style */
+.header a:hover{
+    text-decoration: underline;
+}
+/* styling of div element in the header */
+.header_right{
+    display: flex;
+    align-items: center;
+    min-width: 13vw;
+    justify-content: space-between;
+}
+/* styling of google icons */
+.header_right .header_app{
+    margin-right: 10px;
+}
+
+/* mainbody styling */
+.mainbody{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 12%;
+}
+
+.mainbody img{
+    object-fit: contain;
+    height: 100px;
+    margin: 0 auto;
+}
+
+/* search input styling */
+.search_input{
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+    height: 30px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    margin-top: 40px;
+    width: 40vw;
+    margin: 0 auto;
+    max-width: 560px;
+}
+
+/* styling input */
+.search_input input{
+    flex: 1;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+}
+
+/* styling icons */
+.search_input .material-icons{
+    color: grey;
+}
+
+/* styling search_buttom div */
+.search_button{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+/* styling botton */
+.search_button button{
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: #f8f8f8;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+/* done!!! */
+
+
+
+
+    </style>
+</head>
+
+<body>
+<!-- the header section  which has two div block in it-->
+<div class="header">
+    <!-- this is a left side div with a link in it-->
+    <div class="header_left">
+        <a href="#">About</a>
+        <a href="#">Store</a>
+    </div>
+
+    <div class="header_right">
+        <a href="https://mail.google.com/">Gmail</a>
+        <a href="https://www.google.com/search?q=images&oq=images&aqs=chrome..69i57j0j0i3j0j0i433j69i61j69i60j69i61.969j0j7&sourceid=chrome&ie=UTF-8">images</a>
+        <a href="#"> <span class="material-icons header_app"> apps</span>
+        </a>
+        <span class="material-icons"> account_circle</span>
+    </div>
+</div>
+<!-- end of hearder section -->
+
+<!-- mainbody sectiion start here -->
+<div class="mainbody">
+    <!-- <img src="google_img.png" style="width: 500px;" alt="google logo"> -->
+    <!-- This is the way to make images show up in django-->
+    <img src="{% static 'search/google_img.png' %}" alt="My image">
+
+<!--     search engine section-->
+            <form action="search" method="POST">
+                 {% csrf_token %}
+                <div class="search">
+                    <div class="search_input">
+                        <span class="material-icons">search</span>
+                        <input type="text" name="search" autofocus x-webkit-speech>
+                        <span class="material-icons">mic</span>
+                    </div>
+
+                    <div class="search_button">
+                        <a href="" ><button type="submit">Google search</button></a>
+                        <button>I'm feeling lucky</button>
+                    </div>
+                </div>
+            </form>
+
+
+
+<!--    <form method="POST" action="search">-->
+<!--        {% csrf_token %}-->
+<!--        <input class="search_input" type="text" name="search" autofocus x-webkit-speech/>-->
+<!--        <div class="search-nav">-->
+<!--            <div class="search_button">-->
+<!--                <a href="#">-->
+<!--                    <button type="submit">Google Search</button>-->
+<!--                    <button>I'm feeling lucky</button>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
+
+</div>
+<div class="footer">
+    <p>Design with &hearts;	by <a href="https://ng.linkedin.com/in/aderibigbe-festus">Festus</a> & <a href="https://www.youtube.com/c/Desphixs/">Desphixs</a></p>
+    <br>
+
+</div>
+</body>
+
+</html>
